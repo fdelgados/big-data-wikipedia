@@ -30,7 +30,7 @@ There are several ways to read data into Spark. The simplest way to read in data
 
 We have already implemented a method parse in the object WikipediaData object that parses a line of the dataset and turns it into a WikipediaArticle.
 
-Create an RDD (by implementing val wikiRdd) which contains the WikipediaArticle objects of articles.
+Create an RDD (by implementing ```val wikiRdd```) which contains the WikipediaArticle objects of articles.
 
 ### Compute a ranking of programming languages
 We will use a simple metric for determining the popularity of a programming language: the number of Wikipedia articles that mention the language at least once.
@@ -38,7 +38,7 @@ We will use a simple metric for determining the popularity of a programming lang
 #### Rank languages attempt #1: rankLangs
 **Computing occurrencesOfLang**
 
-Start by implementing a helper method occurrencesOfLang which computes the number of articles in an RDD of type RDD\[WikipediaArticles\] that mention the given language at least once. For the sake of simplicity we check that it least one word (delimited by spaces) of the article text is equal to the given language.
+Start by implementing a helper method occurrencesOfLang which computes the number of articles in an RDD of type ```RDD[WikipediaArticles]`` that mention the given language at least once. For the sake of simplicity we check that it least one word (delimited by spaces) of the article text is equal to the given language.
 
 **Computing the ranking, rankLangs**
 
@@ -60,7 +60,7 @@ An inverted index is an index data structure storing a mapping from content, suc
 
 To make working with the dataset more efficient and more convenient, implement a method that computes an "inverted index" which maps programming language names to the Wikipedia articles on which they occur at least once.
 
-Implement method makeIndex which returns an RDD of the following type: RDD\[(String, Iterable\[WikipediaArticle\])\]. This RDD contains pairs, such that for each language in the given langs list there is at most one pair. Furthermore, the second component of each pair (the Iterable) contains the WikipediaArticles that mention the language at least once.
+Implement method makeIndex which returns an RDD of the following type: ```RDD[(String, Iterable[WikipediaArticle])]```. This RDD contains pairs, such that for each language in the given langs list there is at most one pair. Furthermore, the second component of each pair (the Iterable) contains the WikipediaArticles that mention the language at least once.
 
 *Hint: You might want to use methods flatMap and groupByKey on RDD for this part.*
 
