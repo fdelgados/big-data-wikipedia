@@ -57,7 +57,7 @@ object WikipediaRanking {
    */
   def makeIndex(langs: List[String], rdd: RDD[WikipediaArticle]): RDD[(String, Iterable[WikipediaArticle])] = {
     rdd.flatMap(article => {
-      for (lang <- langs; if article.mentionsLanguage(lang)) yield (lang, article)
+      langs.filter(lang => article.mentionsLanguage(lang)).map(lang => (lang, article))
     }).groupByKey()
   }
 
