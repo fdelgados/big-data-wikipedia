@@ -38,7 +38,7 @@ We will use a simple metric for determining the popularity of a programming lang
 #### Rank languages attempt #1: rankLangs
 **Computing occurrencesOfLang**
 
-Start by implementing a helper method occurrencesOfLang which computes the number of articles in an RDD of type ```RDD[WikipediaArticles]`` that mention the given language at least once. For the sake of simplicity we check that it least one word (delimited by spaces) of the article text is equal to the given language.
+Start by implementing a helper method occurrencesOfLang which computes the number of articles in an RDD of type ```RDD[WikipediaArticles]``` that mention the given language at least once. For the sake of simplicity we check that it least one word (delimited by spaces) of the article text is equal to the given language.
 
 **Computing the ranking, rankLangs**
 
